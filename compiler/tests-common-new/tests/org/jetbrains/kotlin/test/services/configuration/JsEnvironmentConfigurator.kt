@@ -83,6 +83,12 @@ class JsEnvironmentConfigurator(testServices: TestServices) : EnvironmentConfigu
             return testName + outputFileSuffix
         }
 
+        fun getJsPhaseDumpDir(testServices: TestServices, moduleName: String, translationMode: TranslationMode = TranslationMode.FULL) =
+            File(
+                getJsArtifactsOutputDir(testServices, translationMode),
+                getJsArtifactSimpleName(testServices, moduleName) + "-irdump"
+            )
+
         fun getJsModuleArtifactPath(testServices: TestServices, moduleName: String, translationMode: TranslationMode = TranslationMode.FULL): String {
             return getJsArtifactsOutputDir(testServices, translationMode).absolutePath + File.separator + getJsArtifactSimpleName(testServices, moduleName) + "_v5"
         }

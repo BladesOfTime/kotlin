@@ -82,6 +82,7 @@ abstract class AbstractJsBlackBoxCodegenTestBase<R : ResultingArtifact.FrontendO
         useAdditionalService(::JsLibraryProvider)
 
         useAfterAnalysisCheckers(
+            ::JsFailingTestIrDumper,
             ::JsFailingTestSuppressor,
             ::BlackBoxCodegenSuppressor,
         )
